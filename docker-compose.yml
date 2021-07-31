@@ -21,4 +21,12 @@ services:
       - POSTGRES_USER=postgres
     ports:
       - "5432:5432"
-
+  nginx:
+    build:
+        context: ./nginx
+        dockerfile: Dockerfile
+    ports: 
+        - "80:80"
+        - "443:443"
+    depends_on:
+        - web
